@@ -217,3 +217,53 @@ OK (3 tests, 3 assertions)
 ```
 $ composer run-script test
 ```
+
+## GitHub Actions を追加して Test の実行を自動化する
+
+Git でコードを管理していると思います。
+
+GitHub に Push したとき、自動でテストしてくれるように設定しましょう。
+
+最近追加された GitHub Actions を利用します。
+
+GitHub のリポジトリから Actions を開きます。
+
+PHP の`Set up this workflow` をクリック。
+
+以下のように `- name: Run test suite` のコメントを外します。
+
+`.github/workflows/php.yml`
+
+```php
+name: PHP Composer
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    - name: Run test suite
+      run: composer run-script test
+```
+
+コードが編集できたら、`start commit` -> `Commit new file` でコードを追加します。
+
+以上で GitHub にコードが’ Push されるたびにテストが実行されます。
+
+## まとめ
+
+しっかりとテストを書いて、安心してコード変更できるようになりましょう。
