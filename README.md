@@ -9,6 +9,28 @@ PHP の Unit テストフレームワーク。
 
 [PHPUnit](https://phpunit.de/)
 
+
+## PHP Project の作成
+
+`composer` を利用して PHP プロジェクトを作成します。
+
+```
+$ composer init
+```
+
+上記コマンドを実行すると対話形式で PHP のプロジェクトが作成できます。
+
+以下のようなプロジェクトを作成しました。
+
+```json
+{
+    "name": "ouvill/phpunit-practice",
+    "description": "phpunit practice",
+    "license": "MIT",
+    "require": {}
+}
+```
+
 ## PHPUnit のインストール
 
 ```
@@ -18,7 +40,7 @@ $ ./vendor/bin/phpunit --version
 
 ## autoload の設定
 
-autoload を設定すると自動でクラスをロードしてくれる。
+autoload を設定すると自動でクラスをロードしてくれます。
 
 `composer.json`
 
@@ -35,7 +57,7 @@ autoload を設定すると自動でクラスをロードしてくれる。
 }
 ```
 
-autoload を追加したのでマップファイルを更新する。
+autoload を追加したのでマップファイルを更新します。
 
 ```
 $ composer update

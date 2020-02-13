@@ -1,6 +1,6 @@
 {
-  "name": "root/workspace",
-  "type": "project",
+  "name": "ouvill/phpunit-practice",
+  "description": "phpunit practice",
   "license": "MIT",
   "require": {},
   "require-dev": {
