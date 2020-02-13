@@ -142,6 +142,7 @@ OK (3 tests, 3 assertions)
 
 無事テストが通ったら完了です。
 
+
 通ったテスト一覧を表示することもできます。
 
 ```
@@ -161,4 +162,36 @@ Email
 Time: 12 ms, Memory: 4.00 MB
 
 OK (3 tests, 3 assertions)
+```
+
+## Composer Scripts を設定する
+
+テスト実行コマンドが長いので、composer scripts を記載します。
+
+参考:　[Scripts](https://getcomposer.org/doc/articles/scripts.md)
+
+`composer.json`
+
+```json
+{
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "scripts": {
+    "test": [
+      "phpunit --bootstrap vendor/autoload.php --testdox tests"
+    ]
+  }
+}
+```
+
+以下のコマンドでテストが実行できるようになります。
+
+```
+$ composer run-script test
 ```

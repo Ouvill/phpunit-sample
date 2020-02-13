@@ -10,5 +10,10 @@
     "classmap": [
       "src/"
     ]
+  },
+  "scripts": {
+    "test": [
+      "phpunit --bootstrap vendor/autoload.php --testdox tests"
+    ]
   }
 }
